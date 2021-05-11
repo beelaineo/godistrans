@@ -46,4 +46,10 @@ a {
   color: inherit;
   text-decoration: none;
 }
+
+@media screen and (max-width: 768px) {
+html {
+  font-size: 16px;
+}
+}
 </style>

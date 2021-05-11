@@ -76,6 +76,12 @@ main .intro {
   padding: 2rem 2rem 2rem 0rem;
   text-align: justify;
 }
+main .intro p {
+  margin-bottom:1rem;
+}
+main .intro a {
+  text-decoration:underline;
+}
 aside {
   width: 40%;
   height:calc(100vh - 4em);
@@ -107,5 +113,34 @@ ul {
 }
 li {
   display:block;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    padding-top: 6rem;
+  }
+  main h1 {
+    font-size: 36px;
+  }
+  main h1, main h2 {
+    padding: 0rem 0rem 0.25rem 0rem;
+  }
+  main .intro {
+    padding: 1rem 0rem;
+  }
+  aside {
+    width:100%;
+    height: unset;
+  }
+  .auctions-link, .editions-link {
+    font-size: 36px;
+  }
+  .artists-list {
+    height: calc(100vh - 6rem);
+  }
+  .artists-list li {
+    margin:0.25rem 0;
+  }
 }
 </style>

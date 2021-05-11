@@ -1,7 +1,7 @@
 <template>
 <div class="status">
   <NuxtLink to="/">
-  <h3>ART AUCTION FOR TRANS JUSTICE</h3>
+  <h3 class="title" v-text="home.title" />
   </NuxtLink>
   <p>
     <span @click="$router.push(auction[0].slug.current)" v-if="!finished" :class="['indicator', begin<=now?'is-live':'']" />
@@ -17,9 +17,13 @@
   left: 1.5rem;
   top:1.5rem;
   z-index:1;
+  text-shadow: 0px 0px 2px #000;
 }
 .status p {
   line-height:1.5;
+}
+.status .title {
+  text-transform: uppercase;
 }
 .indicator {
   display:inline-block;
@@ -32,6 +36,7 @@
   margin-right:8px;
   line-height:1.3;
   cursor:pointer;
+  box-shadow: 0px 0px 2px #000;
 }
 .indicator.is-live {
   border-color: #61FF00;
@@ -46,6 +51,12 @@ span.live {
   0% { opacity: 0; }
   50% { opacity: 1; }
   100% { opacity: 0; }
+}
+
+@media screen and (max-width: 768px) {
+  .status {
+    position:absolute;
+  }
 }
 </style>
 
