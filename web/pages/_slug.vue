@@ -17,6 +17,7 @@
     </div>
     <div class="image-wrapper">
       <a :href="begin<=now?item.link:null" target="_blank">
+        <keep-alive>
         <img
           :class="item.slug.current=='puppies-puppies-oh-my-god-i-love-you'?'puppies':''"
           :src="$urlFor(item.image).size(960)"
@@ -30,6 +31,7 @@
           ${$urlFor(item.image).size(270)} 270w`"
           sizes="(min-width:768px) 90vw, 100vmin"
         />
+        </keep-alive>
 
       </a>
     </div>
@@ -103,7 +105,7 @@ export default {
           hid: 'og:url',
           property: 'og:url',
           content: `https://godistrans.auction/${this.item.slug.current}`,
-        },     
+        },
       ]
     }
   },
@@ -145,14 +147,6 @@ export default {
 }
 .item-single img {
   max-height:80vh;
-}
-.item-single img.isLoading {
-  width: 20vmax;
-  height: 20vmax;
-}
-.item-single img.isLoaded {
-  width:unset;
-  height:unset;
 }
 .item-index {
   position: fixed;

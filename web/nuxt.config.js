@@ -51,7 +51,7 @@ export default {
       videos: true,
       audios: true,
       iframes: true,
-      native: false,
+      native: true,
       polyfill: true,
       directiveOnly: false,
 
@@ -61,11 +61,7 @@ export default {
       // To remove class set value to false
       loadingClass: 'isLoading',
       loadedClass: 'isLoaded',
-      appendClass: 'lazyLoad',
-
-      observerConfig: {
-        // See IntersectionObserver documentation
-      }
+      appendClass: 'lazyLoad'
     }]
   ],
   gtm: {

@@ -1,3 +1,12 @@
+.item-single img.isLoading {
+  width: 20vmax;
+  height: 20vmax;
+}
+.item-single img.isLoaded {
+  width:auto;
+  height:auto;
+}
+
 .slide-enter-active,
 .slide-leave-active {
   transition: all 0.75s ease-out;
