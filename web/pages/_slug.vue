@@ -29,7 +29,6 @@
           ${$urlFor(item.image).size(480)} 480w,
           ${$urlFor(item.image).size(270)} 270w`"
           sizes="(min-width:768px) 90vw, 100vmin"
-          loading="lazy"
         />
 
       </a>
@@ -123,7 +122,7 @@ export default {
   display:block;
 }
 .item-single img {
-  max-height:90vh;
+  max-height:80vh;
 }
 .item-single img.puppies {
   min-width: 80vw;
@@ -179,7 +178,7 @@ export default {
 }
 
 @media screen and (max-width:768px) {
-  .item-single {
+  .item-single.container {
     width:auto;
     min-height:unset;
     display: block;
@@ -195,6 +194,10 @@ export default {
   }
   .item-index {
     display: flex;
+    left:50%;
+    top:4rem;
+    transform:translateX(-50%);
+    position: absolute;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -202,6 +205,16 @@ export default {
   }
   .item-index .group-label {
     margin-right:0px;
+  }
+  .next-btn, .prev-btn {
+    cursor:pointer;
+    position: fixed;
+    width: 36px;
+    height:36px;
+    top:6rem;
+    display:block;
+    transform:translateY(-50%);
+    z-index:1;
   }
 }
 </style>

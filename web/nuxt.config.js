@@ -42,8 +42,35 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-  ],
+    ['nuxt-lazy-load', {
+      // These are the default values
+      images: true,
+      videos: true,
+      audios: true,
+      iframes: true,
+      native: false,
+      polyfill: true,
+      directiveOnly: false,
 
+      // Default image must be in the static folder
+      defaultImage: '/preloader.gif',
+
+      // To remove class set value to false
+      loadingClass: 'isLoading',
+      loadedClass: 'isLoaded',
+      appendClass: 'lazyLoad',
+
+      observerConfig: {
+        // See IntersectionObserver documentation
+      }
+    }],
+    '@nuxtjs/gtm',
+  ],
+  gtm: {
+    id: 'GTM-MJPHN7H',
+    pageTracking: true,
+    pageViewEventName: 'nuxtRoute'
+  },
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     babel:{

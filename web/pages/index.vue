@@ -137,6 +137,7 @@ li {
     font-size: 36px;
   }
   .artists-list {
+    padding: 2rem;
     height: calc(100vh - 6rem);
   }
   .artists-list li {
