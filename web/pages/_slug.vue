@@ -85,6 +85,28 @@ export default {
     const count = group.length
     return { item, index, count, next, prev }
   },
+  head() {
+    return {
+      title: this.item.artist.title + ' - ' + this.item.title,
+      meta: [
+        {
+          hid: 'og:title',
+          name: 'og:title',
+          content: this.item.artist.title + ' - ' + this.item.title,
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: `${this.$urlFor(this.item.image).size(1200)}`,
+        },
+        {
+          hid: 'og:url',
+          property: 'og:url',
+          content: `https://godistrans.auction/${this.item.slug.current}`,
+        },     
+      ]
+    }
+  },
   computed: {
     ...mapState(['home', 'auction', 'editions']),
     begin() {
@@ -124,8 +146,13 @@ export default {
 .item-single img {
   max-height:80vh;
 }
-.item-single img.puppies {
-  min-width: 80vw;
+.item-single img.isLoading {
+  width: 20vmax;
+  height: 20vmax;
+}
+.item-single img.isLoaded {
+  width:unset;
+  height:unset;
 }
 .item-index {
   position: fixed;
@@ -183,37 +210,64 @@ export default {
     min-height:unset;
     display: block;
     padding:0;
+    margin-top:6rem;
   }
   .item-single .pagination {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
-    position: relative;
+    width: auto;
+    position: static;
     top:7rem;
+    margin-bottom:1rem;
+    margin:0 2rem 1rem 2rem;
   }
   .item-index {
     display: flex;
-    left:50%;
-    top:4rem;
-    transform:translateX(-50%);
-    position: absolute;
+    position: static;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
   }
+  .image-wrapper {
+    height: auto;
+    margin: 2rem 1rem;
+    margin-bottom: 0.5rem;
+    width: calc(100% - 2rem);
+    display: block;
+    position: static;
+  }
+  .item-single .image-wrapper img {
+    max-height:unset;
+    max-width:100%;
+  }
+  .item-single img.isLoading {
+    width: 50vmax;
+    height: 50vmax;
+  }
   .item-index .group-label {
     margin-right:0px;
   }
+  .item-single .caption {
+    position:static;
+    display:block;
+    width: calc(100% - 2rem);
+    margin:1rem;
+  }
+  .item-single .bid-button {
+    display:block;
+    position:static;
+    margin: 2rem 1rem;
+  }
   .next-btn, .prev-btn {
     cursor:pointer;
-    position: fixed;
-    width: 36px;
-    height:36px;
-    top:6rem;
+    position: static;
+    width: 48px;
+    height:48px;
+    /* top:6.5rem; */
     display:block;
-    transform:translateY(-50%);
+    transform:translateY(0);
     z-index:1;
   }
 }

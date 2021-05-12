@@ -75,6 +75,8 @@ main h2 {
 main .intro {
   padding: 2rem 2rem 2rem 0rem;
   text-align: justify;
+  max-width: 600px;
+  margin: 0 auto;
 }
 main .intro p {
   margin-bottom:1rem;

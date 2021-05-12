@@ -4,17 +4,19 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'godistrans',
+    title: 'ART AUCTION FOR TRANS JUSTICE',
     htmlAttrs: {
       lang: 'en'
     },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' }
-    ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { hid: 'description', name: 'description', content: 'Online art auction in memory of Sophie Xeon to benefit the Trans Justice Funding Project. Works by Sparkly Nora Berman, Zoe Chait, Alex Chaves, Eckhaus Latta, Nichole Fitch, Nick Harwood, Matthew Lutz-Kinoy, Blaine O\'Neill, peegirl, Puppies Puppies (Jade Kuriki Olivo), Renata Raksha, Emily Schubert, Analisa Teachworth, Alison Veit, and Jonas Wendelin.' },
+      {
+        hid: 'twitter:card',
+        name: 'twitter:card',
+        content: 'summary_large_image',
+      }
     ]
   },
 
@@ -35,9 +37,10 @@ export default {
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
-    '@nuxtjs/sanity/module'
+    '@nuxtjs/sanity/module',
     // https://go.nuxtjs.dev/eslint
     // '@nuxtjs/eslint-module',
+    '@nuxtjs/gtm'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -63,8 +66,7 @@ export default {
       observerConfig: {
         // See IntersectionObserver documentation
       }
-    }],
-    '@nuxtjs/gtm',
+    }]
   ],
   gtm: {
     id: 'GTM-MJPHN7H',
