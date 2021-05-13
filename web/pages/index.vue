@@ -24,6 +24,7 @@
 <script>
 // import { groq } from '@nuxtjs/sanity'
 import { mapState } from 'vuex'
+import ogImage from '@/assets/preloader.gif'
 // const query = groq`{
 //   "items": *[_type == "item"] {
 //     ...,
@@ -35,6 +36,17 @@ export default {
   // asyncData({ $sanity }) {
   //   return $sanity.fetch(query)
   // },
+  head() {
+    return {
+      meta: [
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: "https://godistrans.auction" + ogImage
+        }
+      ]
+    }
+  },
   transition: {
     name: 'fade',
     mode: 'out-in'
