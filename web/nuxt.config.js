@@ -40,7 +40,7 @@ export default {
     '@nuxtjs/sanity/module',
     // https://go.nuxtjs.dev/eslint
     // '@nuxtjs/eslint-module',
-    '@nuxtjs/gtm'
+    // '@nuxtjs/gtm'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -64,11 +64,11 @@ export default {
       appendClass: 'lazyLoad'
     }]
   ],
-  gtm: {
-    id: 'GTM-MJPHN7H',
-    pageTracking: true,
-    pageViewEventName: 'nuxtRoute'
-  },
+  // gtm: {
+  //   id: 'GTM-MJPHN7H',
+  //   pageTracking: true,
+  //   pageViewEventName: 'nuxtRoute'
+  // },
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     babel:{
