@@ -1,7 +1,7 @@
 <template>
   <div class="item-single container">
     <div class="pagination">
-      <NuxtLink :to="prev.slug.current" v-if="index!=0" class="prev-btn">
+      <NuxtLink :to="'/' + prev.slug.current" v-if="index!=0" class="prev-btn">
         <Left />
       </NuxtLink>
       <div class="item-index">
@@ -11,7 +11,7 @@
         />
         {{index+1}} / {{count}}
       </div>
-      <NuxtLink :to="next.slug.current" v-if="next!=undefined" class="next-btn">
+      <NuxtLink :to="'/' + next.slug.current" v-if="next!=undefined" class="next-btn">
         <Right />
       </NuxtLink>
     </div>
@@ -19,7 +19,7 @@
       <a :href="begin<=now?item.link:null" target="_blank">
         <keep-alive>
         <img
-          :class="item.slug.current=='puppies-puppies-oh-my-god-i-love-you'?'puppies':''"
+          v-if="item.slug.current!='puppies-puppies-oh-my-god-i-love-you'"
           :src="$urlFor(item.image).size(960)"
           :alt="item.artist.title + ' - ' + item.title"
           :srcset="`${$urlFor(item.image).size(2880)} 2880w,
@@ -32,6 +32,13 @@
           sizes="(min-width:768px) 90vw, 100vmin"
         />
         </keep-alive>
+
+        <template v-if="item.slug.current=='puppies-puppies-oh-my-god-i-love-you'">
+          <keep-alive>
+            <video :src="require('~/assets/omgily.mp4')" muted autoplay playsinline loop>
+            </video>
+          </keep-alive>
+        </template>
 
       </a>
     </div>
@@ -148,6 +155,10 @@ export default {
 .item-single img {
   max-height:80vh;
 }
+.item-single video {
+  max-width:100%;
+  width: 720px;
+}
 .item-index {
   position: fixed;
   top: 1.5rem;
@@ -164,7 +175,7 @@ export default {
   position: fixed;
   bottom:1.5rem;
   left:1.5rem;
-  white-space: pre;
+  white-space: pre-wrap;
   text-align: left;
   text-shadow: 0px 0px 2px #000;
 }
@@ -196,6 +207,11 @@ export default {
 }
 .next-btn {
   right:0.25rem;
+}
+@media screen and (min-width:769px) {
+  .item-single .caption {
+    max-width: 60%;
+  }
 }
 
 @media screen and (max-width:768px) {
