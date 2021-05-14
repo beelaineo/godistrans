@@ -100,11 +100,7 @@ export default {
       let output = ''
       let format = "d'd, 'hh'h, 'mm'm, 'ss's, 'SSS'ms'"
 
-      if (this.now <= this.begin) {
-        // countdown to launch
-        countdown = Duration.fromObject(this.untilBegin).toFormat(format)
-        output = 'Beginning in ' + countdown
-      } else if (this.now <= this.end) {
+      if (this.now <= this.end) {
         // countdown to auction end
         countdown = Duration.fromObject(this.untilEnd).toFormat(format)
         output = 'Ending in ' + countdown
