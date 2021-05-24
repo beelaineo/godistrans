@@ -4,7 +4,7 @@
   <h3 class="title" v-text="home.title" />
   </NuxtLink>
   <p>
-    <span @click="$router.push(auction[0].slug.current)" v-if="!finished" :class="['indicator', begin<=now?'is-live':'']" />
+    <span @click="$router.push(auction[0].slug.current)" :class="['indicator']" />
     <span @click="$router.push(auction[0].slug.current)" v-if="begin <= now && !finished" class="live" v-text="'LIVE'"/>
     {{ display }}
   </p>
